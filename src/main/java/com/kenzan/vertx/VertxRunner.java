@@ -1,4 +1,4 @@
-package com.kenzan.netty;
+package com.kenzan.vertx;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Vertx;

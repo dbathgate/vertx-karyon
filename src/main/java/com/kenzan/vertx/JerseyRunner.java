@@ -1,4 +1,4 @@
-package com.kenzan.netty;
+package com.kenzan.vertx;
 
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonArray;
@@ -7,7 +7,7 @@ import io.vertx.core.json.JsonObject;
 import com.englishtown.vertx.guice.GuiceJerseyBinder;
 import com.englishtown.vertx.jersey.JerseyOptions;
 import com.englishtown.vertx.jersey.JerseyServer;
-import com.kenzan.netty.config.VertxModule;
+import com.kenzan.vertx.config.VertxModule;
 import com.netflix.governator.LifecycleInjector;
 import com.netflix.karyon.Karyon;
 import com.netflix.karyon.archaius.ArchaiusKaryonConfiguration;

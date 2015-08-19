@@ -1,4 +1,4 @@
-package com.kenzan.netty.web;
+package com.kenzan.vertx.web;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

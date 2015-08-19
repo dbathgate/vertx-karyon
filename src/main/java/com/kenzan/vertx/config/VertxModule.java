@@ -1,4 +1,4 @@
-package com.kenzan.netty.config;
+package com.kenzan.vertx.config;
 
 import io.vertx.core.Vertx;
 
