@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile group: 'com.netflix.karyon', name: 'karyon3-core', version: '3.0.1-rc.6'
+    compile group: 'com.netflix.karyon', name: 'karyon3-archaius2', version: '3.0.1-rc.6'
+    compile group: 'com.netflix.karyon', name: 'karyon3-rxnetty', version: '3.0.1-rc.6'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.3'
+    compile group: 'io.vertx', name: 'vertx-core', version: '3.0.0'
+    compile group: 'io.vertx', name: 'vertx-web', version: '3.0.0'
+    compile group: 'com.englishtown.vertx', name: 'vertx-jersey', version: '4.0.0'
+    compile group: 'org.glassfish.hk2', name: 'guice-bridge', version: '2.3.0'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}

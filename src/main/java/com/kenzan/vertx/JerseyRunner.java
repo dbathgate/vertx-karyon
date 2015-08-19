@@ -30,7 +30,7 @@ public class JerseyRunner {
         JsonObject jsonObject = new JsonObject();
         JsonArray jsonArray = new JsonArray();
 
-        jsonArray.add("com.kenzan.netty.web");
+        jsonArray.add("com.kenzan.vertx.web");
 
         jsonObject.put("host", "localhost");
         jsonObject.put("port", 8080);
