@@ -1,4 +1,4 @@
-package com.kenzan.vertx.annotation;
+package com.kenzan.vertx.annotations;
 
 import io.vertx.core.http.HttpMethod;
 
@@ -9,7 +9,6 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Route {
-    String value();
-    HttpMethod method() default HttpMethod.GET;
+public @interface VertxHttpMethod {
+    HttpMethod value();
 }

@@ -3,8 +3,9 @@ package com.kenzan.vertx.karyon.examples;
 import io.vertx.core.Vertx;
 
 import com.kenzan.vertx.KaryonVerticle;
-import com.kenzan.vertx.config.VertxHttpModule;
+import com.kenzan.vertx.guice.VertxHttpModule;
 import com.kenzan.vertx.karyon.examples.module.RouterModule;
+import com.netflix.archaius.guice.ArchaiusModule;
 import com.netflix.governator.LifecycleInjector;
 import com.netflix.karyon.Karyon;
 import com.netflix.karyon.archaius.ArchaiusKaryonConfiguration;
@@ -21,8 +22,9 @@ public class KaryonExampleRunner extends KaryonVerticle{
 
         return Karyon.createInjector(
                 ArchaiusKaryonConfiguration.builder()
-                    .withConfigName("vertx-edge")
+                    .withConfigName("vertx-karyon")
                     .build(),
+               new ArchaiusModule(),
                new VertxHttpModule(vertx),
                new RouterModule()
        );

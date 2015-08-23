@@ -1,4 +1,4 @@
-package com.kenzan.vertx.config;
+package com.kenzan.vertx.guice;
 
 import io.vertx.core.Vertx;
 

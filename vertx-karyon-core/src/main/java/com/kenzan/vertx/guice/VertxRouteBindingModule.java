@@ -1,10 +1,7 @@
-package com.kenzan.vertx.config;
+package com.kenzan.vertx.guice;
 
 import io.vertx.core.Vertx;
-import io.vertx.core.http.HttpMethod;
 import io.vertx.ext.web.Router;
-
-import java.lang.reflect.Method;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;
@@ -12,8 +9,7 @@ import com.google.inject.matcher.Matchers;
 import com.google.inject.spi.InjectionListener;
 import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
-import com.kenzan.vertx.annotation.Route;
-import com.kenzan.vertx.annotation.VertxRouter;
+import com.kenzan.vertx.annotations.VertxRouter;
 
 public class VertxRouteBindingModule extends AbstractModule {
 
@@ -38,21 +34,7 @@ public class VertxRouteBindingModule extends AbstractModule {
                     public void afterInjection(I injectee) {
 
                         if (injectee.getClass().isAnnotationPresent(VertxRouter.class)) {
-                            for(Method method : injectee.getClass().getMethods()) {
-                                if (method.isAnnotationPresent(Route.class)) {
-                                    Route vertxRoute =method.getAnnotation(Route.class);
-                                    String path = vertxRoute.value();
-                                    HttpMethod httpMethod = vertxRoute.method();
-
-                                    router.route(httpMethod, path).handler(context -> {
-                                        try {
-                                            method.invoke(injectee, context);
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
-                                    });
-                                }
-                            }
+                            VertxRouteBinder.bind(injectee, router);
                         }
                     }
                 });
